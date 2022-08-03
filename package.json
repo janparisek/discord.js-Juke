@@ -1,0 +1,21 @@
+{
+  "name": "discord.js-juke",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "npm run lint && npm run start",
+    "start": "node .",
+    "lint": "standard"
+  },
+  "keywords": [],
+  "author": "Jan Parisek",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "discord.js": "^14.0.3"
+  },
+  "devDependencies": {
+    "standard": "^17.0.0"
+  }
+}
