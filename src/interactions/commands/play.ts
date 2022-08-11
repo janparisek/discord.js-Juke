@@ -2,7 +2,7 @@
 import { SlashCommandBuilder } from 'discord.js'
 
 // Internal dependencies
-import Interaction from '../../structures/Interaction.mjs'
+import { Interaction } from '../../structures/BotInteraction'
 
 const data = new SlashCommandBuilder()
   .setName('play')

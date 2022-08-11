@@ -2,11 +2,11 @@
 import { Client } from 'discord.js'
 
 // Internal dependencies
-import handleInteractions from './src/handleInteractions.mjs'
-import registerCommands from './src/registerCommands.mjs'
+import handleInteractions from './handleInteractions.js'
+import registerCommands from './registerCommands'
 
 // Configuration
-import TOKEN from './token.mjs'
+import TOKEN from '../token.mjs'
 
 registerCommands('429671088704716800', TOKEN)
 

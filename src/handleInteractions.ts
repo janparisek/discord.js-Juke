@@ -1,4 +1,4 @@
-import registeredInteractions from './interactions/index.mjs'
+import registeredInteractions from './interactions/index.js'
 
 export default function (interaction, playerManager) {
   for (const registeredInteraction of registeredInteractions) {

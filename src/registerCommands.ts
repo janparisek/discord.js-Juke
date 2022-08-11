@@ -3,7 +3,7 @@ import { Routes } from 'discord.js'
 import { REST } from '@discordjs/rest'
 
 // Internal dependencies
-import registeredInteractions from './interactions/index.mjs'
+import registeredInteractions from './interactions/index'
 
 export default function (clientId, token) {
   const commands = registeredInteractions.map(command => console.log(command))
