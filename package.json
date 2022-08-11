@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A discord.js music bot that's easy to maintain.",
   "main": "./dist/server.js",
+  "type": "module",
   "engines": {
     "node": "^16.9.0"
   },
