@@ -2,15 +2,25 @@
   "name": "discord.js-juke",
   "version": "1.0.0",
   "description": "A discord.js music bot that's easy to maintain.",
-  "main": "server.mjs",
-  "scripts": {
-    "test": "npm run lint && npm run start",
-    "start": "node .",
-    "lint": "standard"
+  "main": "./dist/server.js",
+  "engines": {
+    "node": "^16.9.0"
   },
-  "keywords": [],
+  "scripts": {
+    "prestart": "node src/prestart.mjs",
+    "start": "node server.mjs",
+    "lint": "npx prettier --write . && npx ts-standard --fix .",
+    "test": "npm run lint && npm start"
+  },
+  "keywords": [
+    "discord",
+    "discord.js",
+    "discord-js",
+    "discord-bot",
+    "discordjs-bot"
+  ],
   "author": "Jan Parisek",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@discordjs/rest": "^1.0.1",
     "discord.js": "^14.2.0"
