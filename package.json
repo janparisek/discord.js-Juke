@@ -8,10 +8,10 @@
     "node": "^16.9.0"
   },
   "scripts": {
-    "prestart": "node src/prestart.mjs",
-    "start": "node server.mjs",
-    "lint": "npx prettier --write . && npx ts-standard --fix .",
-    "test": "npm run lint && npm start"
+    "prestart": "node ./dist/prestart.js",
+    "start": "node .",
+    "lint": "npx prettier --write ./src && npx ts-standard --fix ./src",
+    "test": "npm run lint && tsc && npm start"
   },
   "keywords": [
     "discord",
