@@ -1,12 +1,12 @@
 // External dependencies
-import { Client } from 'discord.js'
+// import { Client } from 'discord.js'
 
 // Internal dependencies
-import handleInteractions from './handleInteractions.js'
-import registerCommands from './registerCommands'
+// import handleInteractions from './handleInteractions.js'
+import registerCommands from './registerCommands.js'
 
 // Configuration
-import TOKEN from '../token.mjs'
+import TOKEN from '../token.js'
 
 registerCommands('429671088704716800', TOKEN)
 
