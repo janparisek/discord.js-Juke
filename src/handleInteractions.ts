@@ -1,11 +1,16 @@
+import { Interaction } from 'discord.js'
 import registeredInteractions from './interactions/index.js'
+import PlayerManager from './structures/PlayerManager.js'
 
-export default function (interaction, playerManager) {
+export default function (
+  interaction: Interaction,
+  playerManager: typeof PlayerManager
+): void {
   for (const registeredInteraction of registeredInteractions) {
-    if (!registeredInteraction.check(interaction)) continue
+    if (registeredInteraction.check(interaction) === false) continue
 
     // Correct interaction found, run
-    registeredInteraction.run(interaction, playerManager)
+    void registeredInteraction.run(interaction, playerManager)
     break
   }
 }
