@@ -7,7 +7,7 @@ export default function (
   playerManager: typeof PlayerManager
 ): void {
   for (const registeredInteraction of registeredInteractions) {
-    if (registeredInteraction.check(interaction) === false) continue
+    if (!registeredInteraction.check(interaction)) continue
 
     // Correct interaction found, run
     void registeredInteraction.run(interaction, playerManager)
