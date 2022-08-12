@@ -1,16 +1,38 @@
-import { Interaction } from 'discord.js'
+import { Client, CommandInteraction, Interaction } from 'discord.js'
 import registeredInteractions from './interactions/index.js'
 import PlayerManager from './structures/PlayerManager.js'
+import { BotInteraction } from './structures/BotInteraction.js'
 
-export default function (
-  interaction: Interaction,
-  playerManager: PlayerManager
-): void {
-  for (const registeredInteraction of registeredInteractions) {
-    if (!registeredInteraction.check(interaction)) continue
+const playerManager = new PlayerManager()
 
-    // Correct interaction found, run
-    void registeredInteraction.run(interaction, playerManager)
-    break
+const commandManager: Map<string, BotInteraction['run']> = new Map()
+for (const registeredInteraction of registeredInteractions) {
+  commandManager.set(
+    registeredInteraction.data.name,
+    registeredInteraction.run
+  )
+}
+
+export default function (client: Client): void {
+  client.on('interactionCreate', handleInteractions)
+}
+
+function handleInteractions (interaction: Interaction): void {
+  if (interaction.isChatInputCommand()) {
+    handleChatInputCommand(interaction)
+  } else if (interaction.isButton()) {
+    handleButton(interaction)
   }
 }
+
+function handleChatInputCommand (interaction: CommandInteraction): void {
+  const commandName = interaction.commandName
+  const handler = commandManager.get(commandName)
+  if (handler === undefined) {
+    console.error(`Command with name ${commandName} does not exist.`)
+    return
+  }
+  ((interaction, playerManager) => handler)() // IIFE
+}
+
+function handleButton (interaction: Interaction): void {}

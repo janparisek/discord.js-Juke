@@ -3,8 +3,7 @@ import { Client } from 'discord.js'
 
 // Internal dependencies
 import handleInteractions from './handleInteractions.js'
-import registerCommands from './registerCommands.js'
-import PlayerManager from './structures/PlayerManager.js'
+// import registerCommands from './registerCommands.js'
 
 // Configuration
 import TOKEN from '../token.js'
@@ -12,7 +11,6 @@ import TOKEN from '../token.js'
 // await registerCommands('429671088704716800', TOKEN)
 
 const bot = new Client({ intents: [] })
-const playerManager = new PlayerManager()
 
 bot
   .login(TOKEN)
@@ -24,6 +22,4 @@ bot
     console.error(error)
   })
 
-bot.on('interactionCreate', (interaction) =>
-  handleInteractions(interaction, playerManager)
-)
+handleInteractions(bot)

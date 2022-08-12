@@ -2,18 +2,12 @@
 import { Interaction, SlashCommandBuilder } from 'discord.js'
 
 // Internal dependencies
-import { BotInteraction } from '../../structures/BotInteraction.js'
+import { SlashCommandInteraction } from '../../structures/BotInteraction.js'
 import PlayerManager from '../../structures/PlayerManager.js'
 
 const data = new SlashCommandBuilder()
   .setName('play')
   .setDescription('Plays the provided song.')
-
-function check (interaction: Interaction): boolean {
-  if (!interaction.isChatInputCommand()) return false
-  if (interaction.commandName !== 'play') return false
-  return true
-}
 
 async function run (
   interaction: Interaction,
@@ -35,9 +29,8 @@ async function run (
   console.log(playerManager)
 }
 
-const commandData: BotInteraction = {
+const commandData: SlashCommandInteraction = {
   data,
-  check,
   run
 }
 
