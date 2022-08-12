@@ -8,6 +8,6 @@ interface BotInteraction {
   check: (interaction: Interaction) => boolean
   run: (
     interaction: Interaction,
-    playerManager: typeof PlayerManager
+    playerManager: PlayerManager
   ) => Promise<void>
 }

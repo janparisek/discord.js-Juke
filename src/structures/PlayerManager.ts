@@ -1,3 +1,3 @@
 import GuildPlayer from './GuildPlayer.js'
 
-export default new Map<string, GuildPlayer>()
+export default class extends Map<string, GuildPlayer> {}

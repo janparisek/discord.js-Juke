@@ -17,7 +17,7 @@ function check (interaction: Interaction): boolean {
 
 async function run (
   interaction: Interaction,
-  playerManager: typeof PlayerManager
+  playerManager: PlayerManager
 ): Promise<void> {
   // Check if command was used in a guild
   if (!interaction.inCachedGuild()) return
@@ -27,6 +27,7 @@ async function run (
   guild = await guild.fetch()
   if (!guild.available) return
 
+  // Check if member is in voice channel
   const member = await interaction.member?.fetch()
   const voiceState = member.voice
   console.log(voiceState.channel)
