@@ -32,7 +32,7 @@ function handleChatInputCommand (interaction: CommandInteraction): void {
     console.error(`Command with name ${commandName} does not exist.`)
     return
   }
-  (handler)(interaction, playerManager) // IFE
+  ;(handler)(interaction, playerManager) // IFE
 }
 
 function handleButton (interaction: Interaction): void {}
