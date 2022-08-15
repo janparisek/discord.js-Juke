@@ -1,15 +1,10 @@
-import { Interaction, SlashCommandBuilder } from 'discord.js'
-import { Builder } from './Builder.js'
+import { CommandInteraction, SlashCommandBuilder } from 'discord.js'
 import PlayerManager from './PlayerManager.js'
 
-export interface BotInteraction {
-  data: Builder
+export interface SlashCommandInteraction {
+  data: SlashCommandBuilder,
   run: (
-    interaction: Interaction,
+    interaction: CommandInteraction,
     playerManager: PlayerManager
   ) => Promise<void>
-}
-
-export interface SlashCommandInteraction extends BotInteraction {
-  data: SlashCommandBuilder
 }
