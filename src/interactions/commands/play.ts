@@ -20,6 +20,7 @@ async function run (
   // Check if guild is available
   let guild = interaction.guild
   guild = await guild.fetch()
+  // TODO: compare with player manager here
   if (!guild.available) return
 
   // Check if member is in voice channel
@@ -27,7 +28,6 @@ async function run (
   const voiceState = member.voice
   console.log(voiceState.channel)
 
-  console.log(playerManager)
 }
 
 const commandData: SlashCommandImplementation = {
