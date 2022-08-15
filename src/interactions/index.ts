@@ -1,6 +1,6 @@
-import { SlashCommandInteraction } from '../structures/BotInteraction.js'
+import { SlashCommandImplementation } from '../structures/InteractionImplementation.js'
 import play from './commands/play.js'
 
-const commandClasses: SlashCommandInteraction[] = [play]
+const commandClasses: SlashCommandImplementation[] = [play]
 
 export default commandClasses

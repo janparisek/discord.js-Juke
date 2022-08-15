@@ -1,11 +1,11 @@
 import { Client, CommandInteraction, Interaction } from 'discord.js'
 import registeredInteractions from './interactions/index.js'
 import PlayerManager from './structures/PlayerManager.js'
-import { BotInteraction } from './structures/BotInteraction.js'
+import { SlashCommandImplementation } from './structures/InteractionImplementation.js'
 
 const playerManager = new PlayerManager()
 
-const commandManager: Map<string, BotInteraction['run']> = new Map()
+const commandManager: Map<string, SlashCommandImplementation['run']> = new Map()
 for (const registeredInteraction of registeredInteractions) {
   commandManager.set(
     registeredInteraction.data.name,

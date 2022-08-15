@@ -1,8 +1,8 @@
 // External dependencies
-import { Interaction, SlashCommandBuilder } from 'discord.js'
+import { CommandInteraction, Interaction, SlashCommandBuilder } from 'discord.js'
 
 // Internal dependencies
-import { SlashCommandInteraction } from '../../structures/BotInteraction.js'
+import { SlashCommandImplementation } from '../../structures/InteractionImplementation.js'
 import PlayerManager from '../../structures/PlayerManager.js'
 
 const data = new SlashCommandBuilder()
@@ -10,7 +10,7 @@ const data = new SlashCommandBuilder()
   .setDescription('Plays the provided song.')
 
 async function run (
-  interaction: Interaction,
+  interaction: CommandInteraction,
   playerManager: PlayerManager
 ): Promise<void> {
   // Check if command was used in a guild
@@ -29,7 +29,7 @@ async function run (
   console.log(playerManager)
 }
 
-const commandData: SlashCommandInteraction = {
+const commandData: SlashCommandImplementation = {
   data,
   run
 }
