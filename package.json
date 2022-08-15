@@ -11,7 +11,7 @@
     "prestart": "node ./dist/prestart.js",
     "start": "node .",
     "lint": "npx prettier --write ./src && npx ts-standard --fix ./src",
-    "test": "tsc && npm start"
+    "test": "npx -p typescript tsc && npm start"
   },
   "keywords": [
     "discord",
