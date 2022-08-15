@@ -1,5 +1,5 @@
 // External dependencies
-import { Client } from 'discord.js'
+import { Client, IntentsBitField } from 'discord.js'
 
 // Internal dependencies
 import handleInteractions from './handleInteractions.js'
@@ -8,10 +8,12 @@ import handleInteractions from './handleInteractions.js'
 // Configuration
 import TOKEN from '../token.js'
 
+const intents = new IntentsBitField()
+intents.add(IntentsBitField.Flags.Guilds)
+
+const bot = new Client({ intents })
+
 // await registerCommands('429671088704716800', TOKEN)
-
-const bot = new Client({ intents: [] })
-
 handleInteractions(bot)
 
 bot
