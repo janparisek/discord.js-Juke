@@ -1,5 +1,6 @@
 // External dependencies
-import { CommandInteraction, Interaction, SlashCommandBuilder } from 'discord.js'
+import { CommandInteraction } from 'discord.js'
+import { SlashCommandBuilder } from '@discordjs/builders'
 
 // Internal dependencies
 import { SlashCommandImplementation } from '../../structures/InteractionImplementation.js'
