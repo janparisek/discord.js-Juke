@@ -12,6 +12,8 @@ import TOKEN from '../token.js'
 
 const bot = new Client({ intents: [] })
 
+handleInteractions(bot)
+
 bot
   .login(TOKEN)
   .then(() => {
@@ -21,5 +23,3 @@ bot
     console.error('Error logging in.')
     console.error(error)
   })
-
-handleInteractions(bot)
